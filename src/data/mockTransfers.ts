@@ -1,0 +1,88 @@
+import { TransferRequest } from '../types';
+
+export const INITIAL_TRANSFER_REQUESTS: TransferRequest[] = [
+  {
+    id: 'tr-req-001',
+    playerId: 'player-fa-1',
+    playerName: 'معاذ الهوساوي',
+    playerPosition: 'ST',
+    playerOverall: 84,
+    playerAvatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80',
+    playerNeighborhood: 'حي الصفا',
+    playerAge: 24,
+    playerPhone: '0501234567',
+
+    senderCaptainName: 'كابتن طارق الشهري',
+    senderTeamName: 'فهود الصفا',
+    senderPhone: '0551122334',
+    senderPitch: 'ملعب السهم الذهبي - حي الصفا',
+    senderNeighborhood: 'حي الصفا',
+
+    requestType: 'permanent_signing',
+    proposedRole: 'مهاجم صريح أساسي (رأس حربة أول)',
+    proposedShirtNumber: 9,
+    matchOrTrialDate: '2026-09-18',
+    matchOrTrialTime: '20:30',
+    messageNotes: 'السلام عليكم كابتن معاذ، تابعنا مستواك الهجومي الرائع ونود انضمامك رسمياً لكتيبة فهود الصفا لخوض دوري الأحياء السنوي. الفريق متكامل ولديه حارس ودفاع قوي ونحتاج هداف حاسم مثلك.',
+
+    status: 'pending',
+    createdAt: 'منذ ساعتين',
+    read: false,
+  },
+  {
+    id: 'tr-req-002',
+    playerId: 'player-fa-2',
+    playerName: 'طارق الجهني',
+    playerPosition: 'CAM',
+    playerOverall: 81,
+    playerAvatarUrl: 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=400&auto=format&fit=crop&q=80',
+    playerNeighborhood: 'حي الروضة',
+    playerAge: 25,
+    playerPhone: '0559876543',
+
+    senderCaptainName: 'كابتن عبدالمجيد الغامدي',
+    senderTeamName: 'نسور الحمدانية',
+    senderPhone: '0544332211',
+    senderPitch: 'ملعب الكلاسيكو - حي الحمدانية',
+    senderNeighborhood: 'حي الحمدانية',
+
+    requestType: 'match_trial',
+    proposedRole: 'صانع ألعاب ومايسترو خط الوسط (رقم 10)',
+    proposedShirtNumber: 10,
+    matchOrTrialDate: '2026-09-19',
+    matchOrTrialTime: '21:00',
+    messageNotes: 'أهلاً كابتن طارق، نتشرف بدعوتك لمباراة ودية تجريبية قوية ضد أبطال السامر يوم الجمعة القادم للتعرف على الفريق والأجواء التكتيكية.',
+
+    status: 'pending',
+    createdAt: 'منذ 5 ساعات',
+    read: false,
+  },
+  {
+    id: 'tr-req-003',
+    playerId: 'player-fa-4',
+    playerName: 'عمار بالبيد',
+    playerPosition: 'GK',
+    playerOverall: 77,
+    playerAvatarUrl: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop&q=80',
+    playerNeighborhood: 'حي أبحر الشمالية',
+    playerAge: 26,
+    playerPhone: '0567788990',
+
+    senderCaptainName: 'كابتن ريان العتيبي',
+    senderTeamName: 'صقور الروضة',
+    senderPhone: '0566778899',
+    senderPitch: 'ملعب النخبة - حي الروضة',
+    senderNeighborhood: 'حي الروضة',
+
+    requestType: 'tournament_guest',
+    proposedRole: 'حارس مرمى أساسي للبطولة الودية',
+    proposedShirtNumber: 1,
+    matchOrTrialDate: '2026-09-24',
+    matchOrTrialTime: '19:45',
+    messageNotes: 'نشارك في بطولة الربيع لفرق الأحياء بجدة ونرغب في استقطابك كحارس أساسي للفريق لما تملكه من ثبات وتصديات خارقة.',
+
+    status: 'accepted',
+    createdAt: 'منذ يومين',
+    read: true,
+  },
+];

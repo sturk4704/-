@@ -1,0 +1,156 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile and assigned role in the platform",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string", "enum": ["player", "captain", "pitch_owner", "academy_scout", "referee"] },
+        "avatarUrl": { "type": "string" },
+        "phone": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "role"]
+    },
+    "Player": {
+      "title": "Player",
+      "description": "Football player card and profile with FUT stats and performance",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "position": { "type": "string" },
+        "overall": { "type": "number" },
+        "pace": { "type": "number" },
+        "shooting": { "type": "number" },
+        "passing": { "type": "number" },
+        "dribbling": { "type": "number" },
+        "defending": { "type": "number" },
+        "physical": { "type": "number" },
+        "clubName": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "isFreeAgent": { "type": "boolean" },
+        "transferMarketStatus": { "type": "string" }
+      },
+      "required": ["id", "name", "position", "overall"]
+    },
+    "FriendlyChallenge": {
+      "title": "FriendlyChallenge",
+      "description": "Friendly match challenge with 50/50 deposit split between teams",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "creatorTeamName": { "type": "string" },
+        "creatorCaptainName": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "format": { "type": "string" },
+        "neighborhood": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "creatorTeamName", "creatorCaptainName", "date", "time", "format", "status"]
+    },
+    "FriendlyReferee": {
+      "title": "FriendlyReferee",
+      "description": "Registered friendly referee with matches and captain evaluations",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "matchesOfficiated": { "type": "number" },
+        "averageRating": { "type": "number" }
+      },
+      "required": ["id", "name", "matchesOfficiated", "averageRating"]
+    },
+    "TransferRequest": {
+      "title": "TransferRequest",
+      "description": "Official transfer offer or free agent joining request",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "playerId": { "type": "string" },
+        "playerName": { "type": "string" },
+        "senderTeamName": { "type": "string" },
+        "senderCaptainName": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "accepted", "declined"] }
+      },
+      "required": ["id", "playerId", "playerName", "senderTeamName", "status"]
+    },
+    "TeamDiaryEntry": {
+      "title": "TeamDiaryEntry",
+      "description": "Team community diary log, training update, or announcement",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorRole": { "type": "string" },
+        "category": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "title", "content", "authorName", "createdAt"]
+    },
+    "FcfsMatch": {
+      "title": "FcfsMatch",
+      "description": "First-come first-served squad queue and waiting list for team matches",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "matchTitle": { "type": "string" },
+        "matchFormat": { "type": "string" },
+        "startersLimit": { "type": "number" },
+        "isFcfsActive": { "type": "boolean" }
+      },
+      "required": ["id", "matchTitle", "matchFormat", "startersLimit", "isFcfsActive"]
+    },
+    "UserWallet": {
+      "title": "UserWallet",
+      "description": "Captain Coins wallet balance and transaction ledger",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "coins": { "type": "number" }
+      },
+      "required": ["id", "userId", "coins"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profiles and role authorizations"
+    },
+    "/players/{playerId}": {
+      "schema": "Player",
+      "description": "Team players and digital FUT cards"
+    },
+    "/challenges/{challengeId}": {
+      "schema": "FriendlyChallenge",
+      "description": "Friendly challenges and 50/50 pitch bookings"
+    },
+    "/referees/{refereeId}": {
+      "schema": "FriendlyReferee",
+      "description": "Friendly match referees and performance records"
+    },
+    "/transfer_requests/{requestId}": {
+      "schema": "TransferRequest",
+      "description": "Player transfer requests and recruitment offers"
+    },
+    "/team_diary_entries/{entryId}": {
+      "schema": "TeamDiaryEntry",
+      "description": "Team community diary entries and match announcements"
+    },
+    "/fcfs_matches/{matchId}": {
+      "schema": "FcfsMatch",
+      "description": "Real-time FCFS squad queues and waitlists"
+    },
+    "/user_wallets/{userId}": {
+      "schema": "UserWallet",
+      "description": "Captain coins wallets and reward transactions"
+    }
+  }
+}

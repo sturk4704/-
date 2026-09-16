@@ -1,0 +1,10 @@
+{
+  "name": "Remix كابتن جدة ",
+  "description": "منصة كرة القدم الاحترافية: بطاقات فيفا الذكية، تقييم أعمى مضاعف، بناء التشكيلات التفاعلية، حجز الملاعب، وبوابة الكشافين والأكاديميات.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --charcoal-deep: #08090d;
+    --charcoal-card: #11141b;
+    --charcoal-surface: #171b24;
+    --charcoal-subtle: #1e2330;
+    --charcoal-border: #232a3a;
+    --gold-royal: #d4af37;
+    --gold-royal-light: #f5d77f;
+    --gold-royal-dark: #a17c24;
+    --gold-royal-dim: rgba(212, 175, 55, 0.15);
+  }
+
+  body {
+    background-color: #08090d;
+    color: #e2e8f0;
+    font-family: 'Cairo', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* التدرجات الذهبية الملكية الاحترافية */
+.gold-gradient-btn {
+  background: linear-gradient(135deg, #c59b27 0%, #f3d078 48%, #d4af37 52%, #b8861e 100%);
+  color: #08090d;
+  font-weight: 900;
+  box-shadow: 0 4px 18px rgba(197, 155, 39, 0.22);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gold-gradient-btn:hover {
+  background: linear-gradient(135deg, #d4af37 0%, #fae39b 48%, #e5c158 52%, #c59b27 100%);
+  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.32);
+  transform: translateY(-1px);
+}
+
+.gold-gradient-btn:active {
+  transform: scale(0.98);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #f5d77f 0%, #d4af37 50%, #c59b27 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-badge {
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #f5d77f;
+}
+
+.gold-border {
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+/* خلفيات الفحم العميق للبطاقات والأقسام لراحة العين */
+.bg-charcoal-deep {
+  background-color: #08090d;
+}
+
+.bg-charcoal-card {
+  background-color: #11141b;
+}
+
+.bg-charcoal-surface {
+  background-color: #171b24;
+}
+
+.bg-charcoal-input {
+  background-color: #0d0f15;
+}
+
+.border-charcoal {
+  border-color: #222735;
+}
+
+.border-charcoal-subtle {
+  border-color: #1a1f2c;
+}

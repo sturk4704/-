@@ -1,0 +1,88 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions for Authentication & Role-Based Access Control (RBAC)
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // السماح الشامل لكافة مسارات ومستندات المنظومة
+    match /{document=**} {
+      allow read, write: if true;
+    }
+
+    // فحص الاتصال وقاعدة البيانات
+    match /test/{docId} {
+      allow read, write: if true;
+    }
+
+    // ملفات تعريف المستخدمين وأدوارهم الرسمية (player, captain, pitch_owner, academy_scout, referee)
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // بطاقات وقوائم لاعبي الفريق الفعليين
+    match /players/{playerId} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if true;
+    }
+
+    // تشكيلات ومباريات أولوية الحضور وقوائم الانتظار (FCFS Queue)
+    match /fcfs_matches/{matchId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // تحديات ومباريات الفرق وتقسيم الملاعب (عربون 50/50)
+    match /challenges/{challengeId} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if true;
+    }
+
+    // سجل حكام الساحة وتقييمات الكباتن السرية
+    match /referees/{refereeId} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if true;
+    }
+
+    // طلبات سوق الانتقالات واللاعبين الأحرار
+    match /transfer_requests/{requestId} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if true;
+    }
+
+    // يوميات ومحادثات الفريق وإعلانات الكابتن
+    match /team_diary_entries/{entryId} {
+      allow read: if true;
+      allow create, update: if true;
+      allow delete: if true;
+    }
+
+    // محافظ كابتن كوينز وسجلات النقاط
+    match /user_wallets/{userId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // متجر المكافآت وكوبونات الخصم
+    match /reward_items/{rewardId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /redeemed_vouchers/{voucherId} {
+      allow read: if true;
+      allow write: if true;
+    }
+  }
+}
